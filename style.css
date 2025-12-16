@@ -1,22 +1,24 @@
 body {
     background-color: #081c44;
-    padding: none;
-
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Chặn thanh cuộn */
+    touch-action: none; /* Chặn hành động zoom/scroll mặc định của điện thoại */
 }
 
-.container{
-    width: 1600px;
-    height: 900px;
-    border: solid red 5px;
+.container {
+    width: 100vw;  /* Chiếm 100% chiều rộng màn hình */
+    height: 100vh; /* Chiếm 100% chiều cao màn hình */
+    border: solid red 5px; /* Giữ border đỏ theo ý ông */
+    box-sizing: border-box; /* Để border không làm tràn màn hình */
+    position: relative;
 }
-
-
 
 #ghost {
     position: absolute;
-    top: 0;
-    left: 120px;
-    transition: 0.1s;
+    /* Bỏ top/left cố định ở đây, để JS xử lý */
+    transition: 0.1s linear; /* Thêm linear cho mượt hơn chút */
+    z-index: 10;
 }
 
 #dot {
@@ -25,6 +27,7 @@ body {
     width: 10px;
     height: 10px;
     position: absolute;
+    z-index: 2;
 }
 
 #snakeDot {
